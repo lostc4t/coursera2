@@ -8,6 +8,70 @@
   <style>body { font-size: 1.3em; }</style>
 </head>
 <body>
+  <div ng-app="ShoppingListApp">
+    <h1> Shopping List </h1>
+    <div ng-controller="ShoppingListController">
+      <input type="text" ng-model="shoppingList2[0].quantity"><br>
+      Search: <input type="text" ng-model="search"><br>
+      <ul>
+        <li ng-repeat="item in shoppingList2 | filter : search">{{$index + 1}}. Buy {{ item.quantity }} of {{item.name}}(s)</li>
+      </ul>
+      <input type="text" ng-model="newItemName" placeholder="item name"><br>
+      <input type="text" ng-model="newItemQuantity" placeholder="item quantity"><br>
+      <button ng-click="addToList()">Add to List</button>
+
+      <!-- <ul>
+        <li ng-repeat="item in shoppingList2">Buy {{ item.quantity }} of {{item.name}}(s)</li>
+      </ul> -->
+      <!-- <ul>
+        <li ng-repeat="item in shoppingList1">{{ item }}</li>
+      </ul> -->
+    </div>
+  </div>
+  <!-- <div ng-app="BindingApp">
+    <h1> 2way, 1way 1time binding </h1>
+    <div ng-controller="BindingController">
+      <div>
+        <button ng-click="showNumberOfWatchers();">Log # of Watchers</button><br>
+        <button ng-click="setFullName();">Set full name</button><br>
+
+        Full name is {{ ::fullName }}<br>
+
+        <button ng-click="logFirstName();">Log first name</button><br>
+        <button ng-click="logFullName();">Log full name</button><br>
+      </div>
+      <div>
+        <input type="text" ng-model="firstName">
+      </div>
+    </div>
+  </div> -->
+  <!-- <div ng-app="CounterApp">
+    <h1> Digest Cycle </h1>
+    <div ng-controller="CounterController">
+      <div>
+        <button ng-click="upCounter();">Increment counter</button>
+      </div>
+      <div>
+        Regular counter: {{ counter }}
+      </div>
+    </div>
+  </div> -->
+  <!-- <div ng-app="CounterApp">
+    <h1> Digest Cycle </h1>
+    <div ng-controller="CounterController">
+      <div>
+        <button ng-click="showNumberOfWatchers();">Log # of Watchers</button>
+        <br>
+        <button ng-click="countOnce();">Up once counter (once)</button>
+        <br>
+        <button ng-click="upCounter();">Increment counter</button>
+      </div>
+      <div>
+        Once counter: {{ onceCounter }}<br>
+        Regular counter: {{ counter }}
+      </div>
+    </div>
+  </div> -->
 <!-- <div ng-app="myFirstApp">
   <div ng-controller="myFirstController">
     {{name}}<br>
@@ -16,7 +80,7 @@
     Inside my input is: {{name}}
   </div>
 </div> -->
-<div ng-app="NameCalculator">
+<!-- <div ng-app="NameCalculator">
   <h1> Name Calculator </h1>
   <div ng-controller="NameCalculatorController">
     <div>
@@ -28,7 +92,37 @@
       {{name}}
     </div>
   </div>
-</div>
+</div> -->
+<!-- <div ng-app="DIApp">
+  <h1> Dependency Injection </h1>
+  <div ng-controller="DIController">
+    <div>
+      Your name:
+      <input type="text" ng-model="name"
+      ng-blur="upper();">
+    </div>
+  </div>
+</div> -->
+<!-- <div ng-app="MsgApp">
+  <h1> Expressions and Interpolation </h1>
+  <div ng-controller="MsgController">
+    <div>
+        Message is: <br>
+        {{name}}<br>
+        Original {{sayMessage();}}<br>
+        Loves:  {{sayLovesMessage();}}<br>
+        Truth:  {{sayLovesMessage() | truth : 'healthy' : 'cookie' }}<br>
+        BIG TRUTH:  {{sayLovesMessage() | truth : 'healthy' : 'cookie' | uppercase }}
+
+    </div>
+    <div>
+      <button ng-click="feedYaakov();">Feed Yaakov</button>
+      Cost: {{cookieCost | currency}}<br>
+      <img ng-src="images/yaakov_{{stateOfBeing}}.png" width="300">
+    </div>
+  </div>
+</div> -->
+
 
 </body>
 </html>
